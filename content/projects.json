@@ -1,0 +1,229 @@
+[
+  {
+    "slug": "circuit-to-soil-campaign",
+    "title": "Circuit to Soil Campaign",
+    "subtitle": "Global Infographic & Poster Advocacy for E-Waste Reduction",
+    "description": "An eco-awareness visual poster campaign highlighting heavy metal leeching from dumped electronics into agricultural soil, featuring high-resolution infometrics.",
+    "longDescription": "The Circuit to Soil initiative explores how toxic metals like lead, cadmium, and mercury from discarded mobile phones contaminate groundwater and crop ecosystems. Designed as a series of high-impact visual posters and downloadable educational sheets for schools and universities.",
+    "category": "Poster",
+    "date": "2025-11",
+    "location": {
+      "lat": 37.7749,
+      "lng": -122.4194,
+      "regionName": "North America"
+    },
+    "coverImage": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["Visual Poster", "Soil Conservation", "Heavy Metals", "Infographic"],
+    "featured": true,
+    "impactStats": [
+      { "label": "Posters Distributed", "value": "12,500+" },
+      { "label": "Schools Reached", "value": "140+" },
+      { "label": "Tons E-Waste Diverted", "value": "8.5 Tons" }
+    ],
+    "attachments": [
+      {
+        "id": "att-101",
+        "type": "image",
+        "title": "Campaign High-Res Poster Art",
+        "description": "Visual infographic showing the transformation of electronic circuit paths into root systems.",
+        "url": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1600&q=85",
+        "thumbnailUrl": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=400&q=80"
+      },
+      {
+        "id": "att-102",
+        "type": "pdf",
+        "title": "Circuit to Soil Research Whitepaper",
+        "description": "Detailed analysis on heavy metal degradation rates and urban e-waste dumping metrics.",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+      }
+    ]
+  },
+  {
+    "slug": "urban-mine-tracker-prototype",
+    "title": "Urban Mine Tracker",
+    "subtitle": "Interactive Prototype & Mobile App for Local E-Waste Recycling",
+    "description": "A web & mobile prototype allowing residents to discover local e-waste collection hubs, schedule doorstep micro-recycling pickups, and earn green rewards.",
+    "longDescription": "Urban Mine Tracker treats discarded municipal electronics as valuable urban gold mines. By leveraging real-time geographic routing, users can locate verified certified recyclers and track the carbon offset of their recycled appliances.",
+    "category": "Prototype",
+    "date": "2025-09",
+    "location": {
+      "lat": 51.5074,
+      "lng": -0.1278,
+      "regionName": "Europe"
+    },
+    "coverImage": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["Figma Prototype", "React", "GIS Mapping", "Recycling Hubs"],
+    "featured": true,
+    "impactStats": [
+      { "label": "Recycling Hubs Mapped", "value": "450+" },
+      { "label": "Active Pickups", "value": "3,200/mo" },
+      { "label": "CO2 Saved", "value": "14.2 Tons" }
+    ],
+    "attachments": [
+      {
+        "id": "att-201",
+        "type": "prototype",
+        "title": "Live Interactive Sandbox Demo",
+        "description": "Interactive Web App Sandbox previewing the recycling pickup workflow.",
+        "url": "https://example.com",
+        "embedUrl": "https://wikipedia.org"
+      },
+      {
+        "id": "att-202",
+        "type": "website_preview",
+        "title": "Urban Mine Tracker Live Web App",
+        "description": "Production landing web app portal.",
+        "url": "https://example.com"
+      }
+    ]
+  },
+  {
+    "slug": "motherboard-biodegradability-study",
+    "title": "Bio-Substrate PCB Research",
+    "subtitle": "Academic Study on Mycelium-Based Circuit Substrates",
+    "description": "Comprehensive scientific study & PDF documentation on substituting traditional FR-4 glass-epoxy printed circuit boards with organic fungal mycelium substrates.",
+    "longDescription": "Traditional PCBs persist in landfills for centuries due to non-degradable epoxy resins. This research presents empirical lab results testing thermal stability and conductivity of organic mushroom mycelium composite boards.",
+    "category": "PDF & Research",
+    "date": "2025-06",
+    "location": {
+      "lat": 35.6762,
+      "lng": 139.6503,
+      "regionName": "Asia Pacific"
+    },
+    "coverImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["Mycelium PCB", "Materials Science", "Biodegradable Tech", "Peer Reviewed"],
+    "featured": true,
+    "impactStats": [
+      { "label": "Decomposition Rate", "value": "120 Days" },
+      { "label": "Thermal Resistance", "value": "Up to 180°C" }
+    ],
+    "attachments": [
+      {
+        "id": "att-301",
+        "type": "pdf",
+        "title": "Full Published Research Paper (PDF)",
+        "description": "Complete research manuscript detailing dielectric constant, mechanical stress, and soil biodegradation.",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+      },
+      {
+        "id": "att-302",
+        "type": "certificate",
+        "title": "International Green Tech Research Award 2025",
+        "description": "Official commendation from the Global Sustainable Electronics Summit.",
+        "url": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80"
+      }
+    ]
+  },
+  {
+    "slug": "ewaste-crisis-mini-documentary",
+    "title": "Behind the Screen: E-Waste Short Reel",
+    "subtitle": "9:16 Vertical Reel & 16:9 Mini-Doc on Global Dumping Grounds",
+    "description": "An engaging video advocacy campaign featuring short-form social reels and a short documentary exploring informal electronics breakdown yards.",
+    "longDescription": "Informal scrap breakdown yards put workers and local waterways at extreme risk through open-air wire burning and acid leaching. This film project captures the human stories and advocates for safer automated recycling infrastructure.",
+    "category": "Video & Reel",
+    "date": "2025-04",
+    "location": {
+      "lat": 5.6037,
+      "lng": -0.1870,
+      "regionName": "West Africa"
+    },
+    "coverImage": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["Social Reel", "Mini Documentary", "Advocacy Film", "Awareness"],
+    "featured": true,
+    "impactStats": [
+      { "label": "Reel Views", "value": "1.2 Million" },
+      { "label": "Shares & Reposts", "value": "85,000+" }
+    ],
+    "attachments": [
+      {
+        "id": "att-401",
+        "type": "reel",
+        "title": "9:16 E-Waste Quick Awareness Reel",
+        "description": "Fast-paced vertical reel showing phone lifecycle metrics in 60 seconds.",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+        "aspectRatio": "9:16"
+      },
+      {
+        "id": "att-402",
+        "type": "video",
+        "title": "Behind the Screen: Full 16:9 Documentary",
+        "description": "Full documentary on urban electronics recycling.",
+        "url": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "aspectRatio": "16:9"
+      }
+    ]
+  },
+  {
+    "slug": "green-hardware-certification",
+    "title": "Certified Sustainable Tech Specialist",
+    "subtitle": "Professional Accreditation & Circular Design Credentials",
+    "description": "Official certification in Circular Hardware Systems, Modular Repairability Standards (IEEE 1680), and E-Waste Regulatory Compliance.",
+    "longDescription": "Validation of mastery in lifecycle analysis, RoHS compliance, eco-design principles, and zero-waste manufacturing frameworks.",
+    "category": "Certificate",
+    "date": "2025-02",
+    "location": {
+      "lat": -33.8688,
+      "lng": 151.2093,
+      "regionName": "Oceania"
+    },
+    "coverImage": "https://images.unsplash.com/photo-1523289333742-be1143f6b766?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["IEEE Standard", "Circular Design", "Certification", "Accreditation"],
+    "featured": false,
+    "impactStats": [
+      { "label": "Certification Level", "value": "Master Tier" }
+    ],
+    "attachments": [
+      {
+        "id": "att-501",
+        "type": "certificate",
+        "title": "Certified Circular Hardware Specialist",
+        "description": "Issued by the Sustainable Electronics Initiative.",
+        "url": "https://images.unsplash.com/photo-1523289333742-be1143f6b766?auto=format&fit=crop&w=1600&q=85"
+      },
+      {
+        "id": "att-502",
+        "type": "referral",
+        "title": "IEEE Sustainable Tech Guidelines Reference",
+        "description": "Direct specification standards reference.",
+        "url": "https://ieee.org"
+      }
+    ]
+  },
+  {
+    "slug": "modular-phone-repair-kit-blueprint",
+    "title": "Modular Repairability Blueprint",
+    "subtitle": "Open-Source Hardware Schematics & DIY Guide",
+    "description": "An open-source blueprint and step-by-step DIY repair documentation empowering users to swap batteries, screens, and cameras without special tools.",
+    "longDescription": "Planned obsolescence drives millions of functioning devices into trash bins each year. This open hardware toolkit offers universal schematics, 3D printable chassis files, and modular pinouts for longevity.",
+    "category": "Campaign",
+    "date": "2024-12",
+    "location": {
+      "lat": -23.5505,
+      "lng": -46.6333,
+      "regionName": "South America"
+    },
+    "coverImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+    "tags": ["Right to Repair", "Open Hardware", "DIY Blueprint", "Modular Design"],
+    "featured": true,
+    "impactStats": [
+      { "label": "Blueprint Downloads", "value": "45,000+" },
+      { "label": "Devices Repaired", "value": "8,200+" }
+    ],
+    "attachments": [
+      {
+        "id": "att-601",
+        "type": "document",
+        "title": "Modular Repair & Component Pinout Guide",
+        "description": "Step-by-step assembly manual with pinout diagrams.",
+        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+      },
+      {
+        "id": "att-602",
+        "type": "image",
+        "title": "Exploded Component Diagram",
+        "description": "High resolution schematic view of modular phone internals.",
+        "url": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=85"
+      }
+    ]
+  }
+]
