@@ -17,16 +17,52 @@ export default function HomePage() {
   );
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  // Helper to save projects to the backend JSON API
-  const saveProjectsToServer = async (updatedProjects: Project[]) => {
+  // ── Granular Supabase API helpers ───────────────────────────────────────
+  const insertProjectToDb = async (project: Project) => {
     try {
       await fetch('/api/projects', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updatedProjects),
+        body: JSON.stringify({ project }),
       });
     } catch (error) {
-      console.error('Failed to sync projects to server:', error);
+      console.error('Failed to INSERT project:', error);
+    }
+  };
+
+  const updateProjectInDb = async (project: Project) => {
+    try {
+      await fetch('/api/projects', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ project }),
+      });
+    } catch (error) {
+      console.error('Failed to UPDATE project:', error);
+    }
+  };
+
+  const deleteProjectFromDb = async (slug: string) => {
+    try {
+      await fetch('/api/projects', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug }),
+      });
+    } catch (error) {
+      console.error('Failed to DELETE project:', error);
+    }
+  };
+
+  const updateAttachmentsInDb = async (slug: string, attachments: Project['attachments']) => {
+    try {
+      await fetch('/api/projects', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ slug, attachments }),
+      });
+    } catch (error) {
+      console.error('Failed to PATCH attachments:', error);
     }
   };
 
@@ -74,28 +110,31 @@ export default function HomePage() {
     setProjects((prev) => {
       const next = [...prev, project];
       window.localStorage.setItem('ewaste-projects', JSON.stringify(next));
-      saveProjectsToServer(next);
       return next;
     });
+    // INSERT into Supabase
+    insertProjectToDb(project);
   };
 
   const handleUpdateProject = (updated: Project) => {
     setProjects((prev) => {
       const next = prev.map((p) => (p.slug === updated.slug ? updated : p));
       window.localStorage.setItem('ewaste-projects', JSON.stringify(next));
-      saveProjectsToServer(next);
       return next;
     });
+    // UPDATE in Supabase
+    updateProjectInDb(updated);
   };
 
   const handleDeleteProject = (slug: string) => {
     setProjects((prev) => {
       const next = prev.filter((project) => project.slug !== slug);
       window.localStorage.setItem('ewaste-projects', JSON.stringify(next));
-      saveProjectsToServer(next);
       return next;
     });
     setSelectedProject((current) => (current?.slug === slug ? null : current));
+    // DELETE from Supabase
+    deleteProjectFromDb(slug);
   };
 
   const handleDeleteAttachment = (slug: string, attachmentId: string) => {
@@ -109,7 +148,9 @@ export default function HomePage() {
           : project
       );
       window.localStorage.setItem('ewaste-projects', JSON.stringify(next));
-      saveProjectsToServer(next);
+      // PATCH updated attachments in Supabase
+      const updated = next.find((p) => p.slug === slug);
+      if (updated) updateAttachmentsInDb(slug, updated.attachments);
       return next;
     });
   };
@@ -174,7 +215,9 @@ export default function HomePage() {
           : item
       );
       window.localStorage.setItem('ewaste-projects', JSON.stringify(next));
-      saveProjectsToServer(next);
+      // PATCH updated attachments in Supabase
+      const updated = next.find((p) => p.slug === slug);
+      if (updated) updateAttachmentsInDb(slug, updated.attachments);
       return next;
     });
   };
