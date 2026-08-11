@@ -142,7 +142,7 @@ export default function HomePage() {
             <Leaf className="w-4 h-4" />
           </div>
           <span className="font-serif font-bold text-lg text-[#F5F3EA] tracking-tight">
-            Eco<span className="text-[#A7F3D0]">Pulse</span>
+            Abedan<span className="text-[#A7F3D0]">Biswal</span>
           </span>
         </a>
 
@@ -153,7 +153,7 @@ export default function HomePage() {
           </a>
           <a href="#earth-globe" className="hover:text-[#A7F3D0] transition-colors flex items-center gap-1">
             <Globe className="w-3.5 h-3.5 text-[#87A96B]" />
-            <span>3D Earth Map</span>
+            <span>My Work World</span>
           </a>
           <a href="#projects-grid" className="hover:text-[#A7F3D0] transition-colors">
             Assignments Grid
