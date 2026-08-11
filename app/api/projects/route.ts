@@ -1,25 +1,28 @@
 import { NextResponse } from 'next/server';
 import { Project } from '@/types/project';
 import { getAllProjects, mapProjectToDb, mapProjectFromDb } from '@/lib/projects';
-import { supabase } from '@/lib/supabase';
+import { getSupabaseClient } from '@/lib/supabase';
 
 export const dynamic = 'force-dynamic';
 
 // ────────────────────────────────────────────────────────────────────────────
-// GET /api/projects — fetch all projects from Supabase, seed from JSON if empty
+// GET /api/projects — fetch all projects, seed from JSON if Supabase is empty
 // ────────────────────────────────────────────────────────────────────────────
 export async function GET() {
   try {
     const projects = await getAllProjects();
+    const client = getSupabaseClient();
 
-    // If Supabase has no data yet, seed it from the JSON file
-    const { count } = await supabase
-      .from('projects')
-      .select('*', { count: 'exact', head: true });
+    // Auto-seed Supabase from JSON if the table is empty
+    if (client) {
+      const { count } = await client
+        .from('projects')
+        .select('*', { count: 'exact', head: true });
 
-    if (count === 0 && projects.length > 0) {
-      const dbProjects = projects.map(mapProjectToDb);
-      await supabase.from('projects').insert(dbProjects);
+      if ((count ?? 0) === 0 && projects.length > 0) {
+        const dbProjects = projects.map(mapProjectToDb);
+        await client.from('projects').insert(dbProjects);
+      }
     }
 
     return NextResponse.json(projects);
@@ -31,7 +34,6 @@ export async function GET() {
 
 // ────────────────────────────────────────────────────────────────────────────
 // POST /api/projects — INSERT a single new project
-// Body: { project: Project }
 // ────────────────────────────────────────────────────────────────────────────
 export async function POST(request: Request) {
   try {
@@ -41,8 +43,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Valid project with a slug is required.' }, { status: 400 });
     }
 
+    const client = getSupabaseClient();
+    if (!client) {
+      return NextResponse.json({ error: 'Database not configured.' }, { status: 503 });
+    }
+
     const dbRow = mapProjectToDb(project);
-    const { data, error } = await supabase
+    const { data, error } = await client
       .from('projects')
       .insert(dbRow)
       .select()
@@ -61,8 +68,7 @@ export async function POST(request: Request) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// PUT /api/projects — UPDATE a single existing project (identified by slug)
-// Body: { project: Project }
+// PUT /api/projects — UPDATE a single existing project by slug
 // ────────────────────────────────────────────────────────────────────────────
 export async function PUT(request: Request) {
   try {
@@ -72,8 +78,13 @@ export async function PUT(request: Request) {
       return NextResponse.json({ error: 'Valid project with a slug is required.' }, { status: 400 });
     }
 
+    const client = getSupabaseClient();
+    if (!client) {
+      return NextResponse.json({ error: 'Database not configured.' }, { status: 503 });
+    }
+
     const dbRow = mapProjectToDb(project);
-    const { data, error } = await supabase
+    const { data, error } = await client
       .from('projects')
       .update(dbRow)
       .eq('slug', project.slug)
@@ -94,7 +105,6 @@ export async function PUT(request: Request) {
 
 // ────────────────────────────────────────────────────────────────────────────
 // DELETE /api/projects — DELETE a project by slug
-// Body: { slug: string }
 // ────────────────────────────────────────────────────────────────────────────
 export async function DELETE(request: Request) {
   try {
@@ -104,7 +114,12 @@ export async function DELETE(request: Request) {
       return NextResponse.json({ error: 'slug is required.' }, { status: 400 });
     }
 
-    const { error } = await supabase
+    const client = getSupabaseClient();
+    if (!client) {
+      return NextResponse.json({ error: 'Database not configured.' }, { status: 503 });
+    }
+
+    const { error } = await client
       .from('projects')
       .delete()
       .eq('slug', slug);
@@ -122,8 +137,7 @@ export async function DELETE(request: Request) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
-// PATCH /api/projects — UPDATE attachments for a project (upsert attachments array)
-// Body: { slug: string, attachments: Attachment[] }
+// PATCH /api/projects — UPDATE attachments array for a project
 // ────────────────────────────────────────────────────────────────────────────
 export async function PATCH(request: Request) {
   try {
@@ -133,7 +147,12 @@ export async function PATCH(request: Request) {
       return NextResponse.json({ error: 'slug is required.' }, { status: 400 });
     }
 
-    const { data, error } = await supabase
+    const client = getSupabaseClient();
+    if (!client) {
+      return NextResponse.json({ error: 'Database not configured.' }, { status: 503 });
+    }
+
+    const { data, error } = await client
       .from('projects')
       .update({ attachments })
       .eq('slug', slug)

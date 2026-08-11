@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import projectsData from '@/content/projects.json';
 import { Project } from '@/types/project';
-import { supabase } from './supabase';
+import { getSupabaseClient } from './supabase';
 
 // Helper to map DB row to Project interface
 export function mapProjectFromDb(p: any): Project {
@@ -61,8 +61,11 @@ function getFallbackProjects(): Project[] {
 }
 
 export async function getAllProjects(): Promise<Project[]> {
+  const client = getSupabaseClient();
+  if (!client) return getFallbackProjects();
+
   try {
-    const { data, error } = await supabase
+    const { data, error } = await client
       .from('projects')
       .select('*')
       .order('created_at', { ascending: true });
@@ -82,8 +85,11 @@ export async function getAllProjects(): Promise<Project[]> {
 }
 
 export async function getProjectBySlug(slug: string): Promise<Project | undefined> {
+  const client = getSupabaseClient();
+  if (!client) return getFallbackProjects().find((p) => p.slug === slug);
+
   try {
-    const { data, error } = await supabase
+    const { data, error } = await client
       .from('projects')
       .select('*')
       .eq('slug', slug)
