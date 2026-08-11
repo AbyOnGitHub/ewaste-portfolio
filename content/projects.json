@@ -1,10 +1,9 @@
 [
   {
     "slug": "urban-mine-tracker-prototype",
-    "title": "Urban Mine Tracker",
+    "title": "ABC",
     "subtitle": "Interactive Prototype & Mobile App for Local E-Waste Recycling",
     "description": "A web & mobile prototype allowing residents to discover local e-waste collection hubs, schedule doorstep micro-recycling pickups, and earn green rewards.",
-    "longDescription": "Urban Mine Tracker treats discarded municipal electronics as valuable urban gold mines. By leveraging real-time geographic routing, users can locate verified certified recyclers and track the carbon offset of their recycled appliances.",
     "category": "Prototype",
     "date": "2025-09",
     "location": {
@@ -18,21 +17,6 @@
       "React",
       "GIS Mapping",
       "Recycling Hubs"
-    ],
-    "featured": true,
-    "impactStats": [
-      {
-        "label": "Recycling Hubs Mapped",
-        "value": "450+"
-      },
-      {
-        "label": "Active Pickups",
-        "value": "3,200/mo"
-      },
-      {
-        "label": "CO2 Saved",
-        "value": "14.2 Tons"
-      }
     ],
     "attachments": [
       {
