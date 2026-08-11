@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { getAllProjects } from '@/lib/projects';
+import projectsData from '@/content/projects.json';
 import { Project, AttachmentType } from '@/types/project';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutSection } from '@/components/sections/AboutSection';
@@ -13,24 +13,51 @@ import { Leaf, Globe, Layers, Mail } from 'lucide-react';
 
 export default function HomePage() {
   const [projects, setProjects] = useState<Project[]>(() =>
-    getAllProjects().map((project) => ({ ...project, attachments: project.attachments ?? [] }))
+    (projectsData as Project[]).map((project) => ({ ...project, attachments: project.attachments ?? [] }))
   );
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  useEffect(() => {
-    const stored = window.localStorage.getItem('ewaste-projects');
-    if (stored) {
-      try {
-        setProjects(JSON.parse(stored));
-      } catch {
-        setProjects(getAllProjects().map((project) => ({ ...project, attachments: project.attachments ?? [] })));
-      }
+  // Helper to save projects to the backend JSON API
+  const saveProjectsToServer = async (updatedProjects: Project[]) => {
+    try {
+      await fetch('/api/projects', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedProjects),
+      });
+    } catch (error) {
+      console.error('Failed to sync projects to server:', error);
     }
-  }, []);
+  };
 
   useEffect(() => {
-    window.localStorage.setItem('ewaste-projects', JSON.stringify(projects));
-  }, [projects]);
+    const loadProjects = async () => {
+      try {
+        const response = await fetch('/api/projects');
+        if (response.ok) {
+          const data = await response.json();
+          if (Array.isArray(data) && data.length > 0) {
+            setProjects(data);
+            window.localStorage.setItem('ewaste-projects', JSON.stringify(data));
+            return;
+          }
+        }
+      } catch (error) {
+        console.error('Failed to load projects from server:', error);
+      }
+
+      const stored = window.localStorage.getItem('ewaste-projects');
+      if (stored) {
+        try {
+          setProjects(JSON.parse(stored));
+        } catch {
+          // Keep default state
+        }
+      }
+    };
+
+    loadProjects();
+  }, []);
 
   useEffect(() => {
     if (!selectedProject) return;
@@ -45,29 +72,47 @@ export default function HomePage() {
   }, [projects, selectedProject]);
 
   const handleAddProject = (project: Project) => {
-    setProjects((prev) => [...prev, project]);
+    setProjects((prev) => {
+      const next = [...prev, project];
+      window.localStorage.setItem('ewaste-projects', JSON.stringify(next));
+      saveProjectsToServer(next);
+      return next;
+    });
   };
 
   const handleUpdateProject = (updated: Project) => {
-    setProjects((prev) => prev.map((p) => (p.slug === updated.slug ? updated : p)));
+    setProjects((prev) => {
+      const next = prev.map((p) => (p.slug === updated.slug ? updated : p));
+      window.localStorage.setItem('ewaste-projects', JSON.stringify(next));
+      saveProjectsToServer(next);
+      return next;
+    });
   };
 
   const handleDeleteProject = (slug: string) => {
-    setProjects((prev) => prev.filter((project) => project.slug !== slug));
+    setProjects((prev) => {
+      const next = prev.filter((project) => project.slug !== slug);
+      window.localStorage.setItem('ewaste-projects', JSON.stringify(next));
+      saveProjectsToServer(next);
+      return next;
+    });
     setSelectedProject((current) => (current?.slug === slug ? null : current));
   };
 
   const handleDeleteAttachment = (slug: string, attachmentId: string) => {
-    setProjects((prev) =>
-      prev.map((project) =>
+    setProjects((prev) => {
+      const next = prev.map((project) =>
         project.slug === slug
           ? {
               ...project,
               attachments: project.attachments.filter((att) => att.id !== attachmentId),
             }
           : project
-      )
-    );
+      );
+      window.localStorage.setItem('ewaste-projects', JSON.stringify(next));
+      saveProjectsToServer(next);
+      return next;
+    });
   };
 
   const handleUploadAttachments = async (slug: string, files: FileList) => {
@@ -123,13 +168,16 @@ export default function HomePage() {
       })
     );
 
-    setProjects((prev) =>
-      prev.map((item) =>
+    setProjects((prev) => {
+      const next = prev.map((item) =>
         item.slug === slug
           ? { ...item, attachments: [...(item.attachments ?? []), ...uploadedAttachments] }
           : item
-      )
-    );
+      );
+      window.localStorage.setItem('ewaste-projects', JSON.stringify(next));
+      saveProjectsToServer(next);
+      return next;
+    });
   };
 
   return (

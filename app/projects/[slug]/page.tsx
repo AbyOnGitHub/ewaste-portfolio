@@ -4,6 +4,8 @@ import { getProjectBySlug, getAllProjects } from '@/lib/projects';
 import { ProjectSlugClient } from './ProjectSlugClient';
 import { Metadata } from 'next';
 
+export const dynamic = 'force-dynamic';
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
