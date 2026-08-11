@@ -4,6 +4,8 @@ import path from 'path';
 import { Project } from '@/types/project';
 import { getAllProjects } from '@/lib/projects';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
   try {
     const projects = getAllProjects();

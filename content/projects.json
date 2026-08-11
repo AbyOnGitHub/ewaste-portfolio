@@ -1,44 +1,5 @@
 [
   {
-    "slug": "circuit-to-soil-campaign",
-    "title": "Circuit to Soil Campaign",
-    "subtitle": "Global Infographic & Poster Advocacy for E-Waste Reduction",
-    "description": "An eco-awareness visual poster campaign highlighting heavy metal leeching from dumped electronics into agricultural soil, featuring high-resolution infometrics.",
-    "longDescription": "The Circuit to Soil initiative explores how toxic metals like lead, cadmium, and mercury from discarded mobile phones contaminate groundwater and crop ecosystems. Designed as a series of high-impact visual posters and downloadable educational sheets for schools and universities.",
-    "category": "Poster",
-    "date": "2025-11",
-    "location": {
-      "lat": 37.7749,
-      "lng": -122.4194,
-      "regionName": "North America"
-    },
-    "coverImage": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1200&q=80",
-    "tags": ["Visual Poster", "Soil Conservation", "Heavy Metals", "Infographic"],
-    "featured": true,
-    "impactStats": [
-      { "label": "Posters Distributed", "value": "12,500+" },
-      { "label": "Schools Reached", "value": "140+" },
-      { "label": "Tons E-Waste Diverted", "value": "8.5 Tons" }
-    ],
-    "attachments": [
-      {
-        "id": "att-101",
-        "type": "image",
-        "title": "Campaign High-Res Poster Art",
-        "description": "Visual infographic showing the transformation of electronic circuit paths into root systems.",
-        "url": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1600&q=85",
-        "thumbnailUrl": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=400&q=80"
-      },
-      {
-        "id": "att-102",
-        "type": "pdf",
-        "title": "Circuit to Soil Research Whitepaper",
-        "description": "Detailed analysis on heavy metal degradation rates and urban e-waste dumping metrics.",
-        "url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
-      }
-    ]
-  },
-  {
     "slug": "urban-mine-tracker-prototype",
     "title": "Urban Mine Tracker",
     "subtitle": "Interactive Prototype & Mobile App for Local E-Waste Recycling",
@@ -52,12 +13,26 @@
       "regionName": "Europe"
     },
     "coverImage": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
-    "tags": ["Figma Prototype", "React", "GIS Mapping", "Recycling Hubs"],
+    "tags": [
+      "Figma Prototype",
+      "React",
+      "GIS Mapping",
+      "Recycling Hubs"
+    ],
     "featured": true,
     "impactStats": [
-      { "label": "Recycling Hubs Mapped", "value": "450+" },
-      { "label": "Active Pickups", "value": "3,200/mo" },
-      { "label": "CO2 Saved", "value": "14.2 Tons" }
+      {
+        "label": "Recycling Hubs Mapped",
+        "value": "450+"
+      },
+      {
+        "label": "Active Pickups",
+        "value": "3,200/mo"
+      },
+      {
+        "label": "CO2 Saved",
+        "value": "14.2 Tons"
+      }
     ],
     "attachments": [
       {
@@ -91,11 +66,22 @@
       "regionName": "Asia Pacific"
     },
     "coverImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
-    "tags": ["Mycelium PCB", "Materials Science", "Biodegradable Tech", "Peer Reviewed"],
+    "tags": [
+      "Mycelium PCB",
+      "Materials Science",
+      "Biodegradable Tech",
+      "Peer Reviewed"
+    ],
     "featured": true,
     "impactStats": [
-      { "label": "Decomposition Rate", "value": "120 Days" },
-      { "label": "Thermal Resistance", "value": "Up to 180°C" }
+      {
+        "label": "Decomposition Rate",
+        "value": "120 Days"
+      },
+      {
+        "label": "Thermal Resistance",
+        "value": "Up to 180°C"
+      }
     ],
     "attachments": [
       {
@@ -124,15 +110,26 @@
     "date": "2025-04",
     "location": {
       "lat": 5.6037,
-      "lng": -0.1870,
+      "lng": -0.187,
       "regionName": "West Africa"
     },
     "coverImage": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-    "tags": ["Social Reel", "Mini Documentary", "Advocacy Film", "Awareness"],
+    "tags": [
+      "Social Reel",
+      "Mini Documentary",
+      "Advocacy Film",
+      "Awareness"
+    ],
     "featured": true,
     "impactStats": [
-      { "label": "Reel Views", "value": "1.2 Million" },
-      { "label": "Shares & Reposts", "value": "85,000+" }
+      {
+        "label": "Reel Views",
+        "value": "1.2 Million"
+      },
+      {
+        "label": "Shares & Reposts",
+        "value": "85,000+"
+      }
     ],
     "attachments": [
       {
@@ -167,10 +164,18 @@
       "regionName": "Oceania"
     },
     "coverImage": "https://images.unsplash.com/photo-1523289333742-be1143f6b766?auto=format&fit=crop&w=1200&q=80",
-    "tags": ["IEEE Standard", "Circular Design", "Certification", "Accreditation"],
+    "tags": [
+      "IEEE Standard",
+      "Circular Design",
+      "Certification",
+      "Accreditation"
+    ],
     "featured": false,
     "impactStats": [
-      { "label": "Certification Level", "value": "Master Tier" }
+      {
+        "label": "Certification Level",
+        "value": "Master Tier"
+      }
     ],
     "attachments": [
       {
@@ -203,11 +208,22 @@
       "regionName": "South America"
     },
     "coverImage": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
-    "tags": ["Right to Repair", "Open Hardware", "DIY Blueprint", "Modular Design"],
+    "tags": [
+      "Right to Repair",
+      "Open Hardware",
+      "DIY Blueprint",
+      "Modular Design"
+    ],
     "featured": true,
     "impactStats": [
-      { "label": "Blueprint Downloads", "value": "45,000+" },
-      { "label": "Devices Repaired", "value": "8,200+" }
+      {
+        "label": "Blueprint Downloads",
+        "value": "45,000+"
+      },
+      {
+        "label": "Devices Repaired",
+        "value": "8,200+"
+      }
     ],
     "attachments": [
       {

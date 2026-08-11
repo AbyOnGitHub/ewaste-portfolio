@@ -32,6 +32,15 @@ export default function HomePage() {
 
   useEffect(() => {
     const loadProjects = async () => {
+      const stored = window.localStorage.getItem('ewaste-projects');
+      if (stored) {
+        try {
+          setProjects(JSON.parse(stored));
+        } catch (e) {
+          console.error('Failed to parse cached local projects:', e);
+        }
+      }
+
       try {
         const response = await fetch('/api/projects');
         if (response.ok) {
@@ -39,20 +48,10 @@ export default function HomePage() {
           if (Array.isArray(data) && data.length > 0) {
             setProjects(data);
             window.localStorage.setItem('ewaste-projects', JSON.stringify(data));
-            return;
           }
         }
       } catch (error) {
         console.error('Failed to load projects from server:', error);
-      }
-
-      const stored = window.localStorage.getItem('ewaste-projects');
-      if (stored) {
-        try {
-          setProjects(JSON.parse(stored));
-        } catch {
-          // Keep default state
-        }
       }
     };
 
