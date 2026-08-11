@@ -118,7 +118,7 @@ export default function HomePage() {
           type: determineType(file),
           title: file.name,
           description: `${Math.round(file.size / 1024)} KB`,
-          url,
+          url: url || '', // ensure url is never null
         };
       })
     );

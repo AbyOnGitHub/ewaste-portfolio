@@ -12,7 +12,7 @@ import { VideoReelPlayer } from '../viewers/VideoReelPlayer';
 interface ProjectDetailModalProps {
   project: Project | null;
   onClose: () => void;
-  onDeleteAttachment: (slug: string, attachmentId: string) => void;
+  onDeleteAttachment?: (slug: string, attachmentId: string) => void;
 }
 
 export function ProjectDetailModal({ project, onClose, onDeleteAttachment }: ProjectDetailModalProps) {
@@ -181,9 +181,9 @@ export function ProjectDetailModal({ project, onClose, onDeleteAttachment }: Pro
                   <span className="text-xs text-[#D1CDBC]/80">Manage attachments</span>
                   <button
                     type="button"
-                    onClick={() => currentAttachment && onDeleteAttachment(project.slug, currentAttachment.id)}
+                    onClick={() => currentAttachment && onDeleteAttachment?.(project.slug, currentAttachment.id)}
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#7f1d1d] text-xs font-semibold text-[#F5F3EA] hover:bg-[#991b1b] transition-colors"
-                    disabled={!currentAttachment}
+                    disabled={!currentAttachment || !onDeleteAttachment}
                   >
                     <Layers className="w-3.5 h-3.5" />
                     Delete Selected
